@@ -1,0 +1,26 @@
+//0777 added
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<fcntl.h>
+
+int main()
+{
+    int fd=0;
+
+    fd = open("January.txt",O_RDWR | O_CREAT,0777);
+
+    if(fd == -1)
+    {
+        printf("Unable to Open File\n");
+    }   
+    else
+    {
+        printf("File get's Successfully Open with FD : %d\n",fd);
+        write(fd,"Jay Ganesh",3);
+        close(fd);
+    } 
+    
+    return 0;
+}
